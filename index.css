@@ -1,0 +1,400 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+p,
+div,
+button,
+textarea,
+li,
+dt,
+dd,
+a,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+super,
+.submit {
+    font-family: consolas, '宋体';
+    font-weight: 200 !important;
+}
+
+li {
+    font-size: 24px;
+}
+
+body {
+    background-color: #000;
+}
+
+super {
+    display: inline;
+    font-size: 22px;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: 'Fira Code';
+    src: url(FiraCode.ttf);
+}
+
+.bigBox {
+    margin: 0 auto;
+    width: 1400px;
+}
+
+.box {
+    position: relative;
+    width: 1400px;
+    height: 750px;
+    overflow: hidden;
+}
+
+.page {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2800px;
+    height: 1500px;
+    overflow: hidden;
+    background: linear-gradient(30deg, rgb(3, 13, 33), rgb(6, 26, 66));
+}
+
+.page-c {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2800px;
+    height: 1500px;
+    overflow: hidden;
+    background: linear-gradient(30deg, rgb(211, 226, 255), rgb(222, 217, 255));
+}
+
+.littlePage {
+    position: absolute;
+    width: 1400px;
+    height: 750px;
+}
+
+.mainPage,
+.questionMain {
+    left: 0;
+    top: 0;
+}
+
+.questionDescription,
+.cakeSets {
+    left: 1400px;
+    top: 0;
+}
+
+.questionExplanation,
+.discussion {
+    left: 0;
+    top: 750px;
+}
+
+.questionSubmit,
+.myAccount {
+    left: 1400px;
+    top: 750px;
+}
+
+.returnMain {
+    font-size: 16px;
+}
+
+.main {
+    position: absolute;
+    padding: 20px;
+    left: 500px;
+    top: 200px;
+    height: 200px;
+}
+
+.main h1 {
+    font-size: 72px;
+}
+
+.main h2 {
+    text-indent: 3em;
+    font-size: 48px;
+}
+
+.main h3 {
+    text-indent: 9em;
+    margin-top: 5px;
+    font-size: 36px;
+    font-weight: 400;
+}
+
+.main span {
+    float: left;
+    height: 100px;
+}
+
+.block {
+    position: absolute;
+}
+
+.block h4 {
+    font-size: 36px;
+}
+
+.turn-to-page {
+    position: absolute;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 100;
+    color: #ddd;
+}
+
+.turn-to-page-c {
+    position: absolute;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 100;
+    color: #444;
+}
+
+.turn-to-page hr,
+.turn-to-page-c hr {
+    margin-top: 40px;
+}
+
+.turn-left {
+    left: 0;
+    top: 250px;
+}
+
+.turn-right {
+    right: 0;
+    top: 350px;
+}
+
+.turn-right div {
+    right: 10px;
+}
+
+.circle {
+    position: absolute;
+    width: 22px;
+    height: 30px;
+    padding-left: 8px;
+    padding-top: 0px;
+    margin-bottom: 5px;
+    font-weight: 900;
+    font-size: 24px;
+    color: #ddd;
+    border: 2px solid #ddd;
+    border-radius: 50%;
+}
+
+.circle-c {
+    position: absolute;
+    width: 22px;
+    height: 30px;
+    padding-left: 8px;
+    padding-top: 0px;
+    margin-bottom: 5px;
+    font-weight: 900;
+    font-size: 24px;
+    color: #444;
+    border: 2px solid #444;
+    border-radius: 50%;
+}
+
+.jumpto {
+    margin-left: 10px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.green-yellow {
+    background: linear-gradient(70deg, rgb(92, 255, 127), rgb(252, 255, 104));
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -o-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.blue-cyan {
+    background: linear-gradient(45deg, rgb(64, 153, 255), cyan);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -o-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.blue-pink {
+    background: linear-gradient(70deg, rgb(114, 116, 255), rgb(255, 0, 255));
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -o-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.red-orange {
+    background: linear-gradient(70deg, rgb(255, 63, 63), rgb(255, 158, 48));
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -o-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.green-blue {
+    background: linear-gradient(70deg, rgb(63, 255, 127), rgb(51, 207, 255));
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -o-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.color-lsblue {
+    color: lightskyblue;
+}
+
+.color-pink {
+    color: rgb(255, 0, 255);
+}
+
+.green-yellow-c {
+    background: linear-gradient(70deg, rgb(21, 107, 40), rgb(121, 122, 27));
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -o-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.blue-cyan-c {
+    background: linear-gradient(45deg, rgb(36, 83, 138), rgb(0, 102, 102));
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -o-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.blue-pink-c {
+    background: linear-gradient(70deg, rgb(42, 43, 112), rgb(138, 53, 138));
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -o-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.red-orange-c {
+    background: linear-gradient(70deg, rgb(173, 71, 71), rgb(138, 91, 37));
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -o-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.green-blue-c {
+    background: linear-gradient(70deg, rgb(45, 121, 70), rgb(23, 115, 143));
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -o-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.color-lsblue-c {
+    color: rgb(52, 119, 160);
+}
+
+.color-pink-c {
+    color: rgb(109, 0, 109);
+}
+
+.text {
+    margin: 10px;
+    padding: 2px;
+    text-indent: 1em;
+    font-size: 20px;
+    border: 1px solid #aaa;
+    border-radius: 2px;
+}
+
+.code {
+    border: 1px solid #444;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    font-size: 14px;
+    font-family: 'Fira Code';
+    color: rgb(185, 223, 255);
+    background: linear-gradient(45deg, rgb(24, 3, 36), rgb(31, 7, 53));
+}
+
+.code-c {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    font-size: 14px;
+    font-family: 'Fira Code';
+    color: rgb(20, 53, 80);
+    background: linear-gradient(45deg, rgb(208, 128, 255), rgb(228, 199, 255));
+}
+.np-code {
+    border: 1px solid #444;
+    border-radius: 10px;
+    margin: 10px;
+    font-size: 14px;
+    font-family: 'Fira Code';
+    color: rgb(185, 223, 255);
+    background: linear-gradient(45deg, rgb(24, 3, 36), rgb(31, 7, 53));
+}
+
+.np-code-c {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin: 10px;
+    font-size: 14px;
+    font-family: 'Fira Code';
+    color: rgb(20, 53, 80);
+    background: linear-gradient(45deg, rgb(208, 128, 255), rgb(228, 199, 255));
+}
+
+.code p {
+    font-size: 14px;
+    font-family: 'Fira Code';
+    color: rgb(185, 223, 255);
+}
+
+.example-code {
+    width: 500px;
+}
+
+.submit {
+    background: linear-gradient(45deg, rgb(52, 4, 75), rgb(96, 33, 243));
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 20px;
+    color: rgb(196, 113, 255);
+    border: 1px solid #444;
+    border-radius: 5px;
+}
+
+.log-in-information {
+    text-indent: 0.5em;
+    font-weight: 600 !important;
+}

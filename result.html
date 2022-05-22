@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Codebaker Online Judge</title>
+  <script src="index.js"></script>
+  <script src="math/plugins/noImageFonts.js"></script>
+  <script src="math/jsMath.js"></script>
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+  <link href="index.css" rel="stylesheet"/>
+</head>
+
+<body onload="testTheme()">
+<div class="bigBox">
+  <div class="box">
+    <div id="page" v-bind:class="['' ,theme? 'page' : 'page-c']">
+
+
+      <div class="littlePage mainPage">
+        <div class="block" style="left: 1050px;top: 100px;">
+          <button v-bind:class="['' ,theme? 'code' : 'code-c']" v-on:click="turnTheme">switch theme</button><br/>
+          <a href="index.html" v-bind:class="['returnMain' ,theme? 'color-pink' : 'color-pink-c']">return to main page</a>
+        </div>
+
+        <div class="block" style="left: 350px;top: 150px;width: 400px;height: 130px;">
+          <div class="result">
+            <div class="testPoint">
+
+            </div>
+          </div>
+          <h3 id="date" v-bind:class="['' ,theme? 'green-yellow' : 'green-yellow-c']"></h3>
+        </div>
+        <div class="block" style="left: 1030px;top:630px;">
+          <p v-bind:class="['' ,theme? 'green-blue' : 'green-blue-c']">&copy; Codebaker 2022. All rights
+            reserved.</p>
+        </div>
+        <div class="main">
+          <h3 id="question-number" v-bind:class="['' ,theme? 'blue-cyan' : 'blue-cyan-c']">***:</h3>
+          <h3 v-bind:class="['' ,theme? 'color-lsblue' : 'color-lsblue-c']">&nbsp;&nbsp;Result</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var myVue = new Vue({
+    el: '#page',
+    data: {
+      theme: true,
+    },
+    methods: {
+      turnTheme: function turn() {
+        myVue.theme = !myVue.theme;
+        if (localStorage.getItem("cojTheme") == "1") {
+          localStorage.setItem("cojTheme", "2");
+        } else {
+          localStorage.setItem("cojTheme", "1");
+        }
+      }
+    },
+  })
+
+  function testTheme() {
+    if (localStorage.getItem("cojTheme") == undefined) {
+      localStorage.setItem("cojTheme", "1");
+      myVue.theme = true;
+    } else myVue.theme = localStorage.getItem("cojTheme") != "2";
+  }
+</script>
+</body>
+
+</html>

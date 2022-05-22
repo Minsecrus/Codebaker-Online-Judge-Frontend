@@ -1,0 +1,12 @@
+{
+  "name": "untitled5",
+  "version": "1.0.0",
+  "description": "codebaker online judge-frontend",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Minsecrus_dreamers",
+  "license": "ISC"
+}

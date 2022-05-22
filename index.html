@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Codebaker Online Judge</title>
+    <script src="index.js"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <link href="index.css" rel="stylesheet" />
+</head>
+
+<body onload="testTheme()">
+    <div class="bigBox">
+        <div class="box">
+            <div id="page" v-bind:class="['' ,theme? 'page' : 'page-c']">
+
+
+                <div class="littlePage mainPage">
+                    <div onclick="toPage(3)" v-bind:class="['turn-left' ,theme? 'turn-to-page' : 'turn-to-page-c']">
+                        <div v-bind:class="['' ,theme? 'circle' : 'circle-c']">&lt;</div>
+                        <hr/> my account
+                    </div>
+                    <div onclick="toPage(1)" v-bind:class="['turn-right' ,theme? 'turn-to-page' : 'turn-to-page-c']">
+                        <div v-bind:class="['' ,theme? 'circle' : 'circle-c']">&gt;</div>
+                        <hr/> cakesets
+                    </div>
+                    <div class="block" style="left: 1150px;top: 100px;">
+                        <button v-bind:class="['' ,theme? 'code' : 'code-c']" v-on:click="turnTheme">switch theme</button>
+                    </div>
+                    <div class="block" style="padding:50px;left: 150px;top: 50px;width: 200px;height: 130px;">
+                        <p v-bind:class="['jumpto' ,theme? 'green-yellow' : 'green-yellow-c']">jump to:</p>
+                        <textarea class="text" cols="20" id="jump" name="number" rows="1"></textarea>
+                        <p onclick="jump()" v-bind:class="['jumpto' ,theme? 'color-lsblue' : 'color-lsblue-c']">jump</p>
+                        <p onclick="ranJump()" v-bind:class="['jumpto' ,theme? 'blue-cyan' : 'blue-cyan-c']">randomly jump
+                        </p>
+                    </div>
+                    <div class="block" style="left: 350px;top: 550px;width: 200px;height: 130px;">
+                        <h1 v-bind:class="['' ,theme? 'blue-pink' : 'blue-pink-c']">Date:</h1>
+                        <h2 id="date" v-bind:class="['' ,theme? 'green-yellow' : 'green-yellow-c']"></h2>
+                    </div>
+                    <div class="block" style="left: 1030px;top:630px;">
+                        <p v-bind:class="['' ,theme? 'green-blue' : 'green-blue-c']">&copy; Codebaker 2022. All rights reserved.
+                        </p>
+                    </div>
+                    <div class="main">
+                        <h1 v-bind:class="['' ,theme? 'blue-pink' : 'blue-pink-c']">Codebaker-</h1>
+                        <h2 v-bind:class="['' ,theme? 'blue-cyan' : 'blue-cyan-c']"> Online Judge</h2>
+                        <h3 v-bind:class="['' ,theme? 'color-lsblue' : 'color-lsblue-c']">main page</h3>
+                    </div>
+                </div>
+
+
+                <div class="littlePage cakeSets">
+                    <div onclick="toPage(0)" v-bind:class="['turn-left' ,theme? 'turn-to-page' : 'turn-to-page-c']">
+                        <div v-bind:class="['' ,theme? 'circle' : 'circle-c']">&lt;</div>
+                        <hr/> main page
+                    </div>
+                    <div onclick="toPage(2)" v-bind:class="['turn-right' ,theme? 'turn-to-page' : 'turn-to-page-c']">
+                        <div v-bind:class="['' ,theme? 'circle' : 'circle-c']">&gt;</div>
+                        <hr/> discussion
+                    </div>
+                    <div class="block" onclick="displayQuestions(0)" style="left: 150px;top: 50px;width: 300px;height: 30px;">
+                        <h1 v-bind:class="['' ,theme? 'green-yellow' : 'green-yellow-c']">easy:</h1>
+                    </div>
+                    <div class="block" id="easy" style="left: 150px;top: 85px;">
+                        <ul v-bind:class="['' ,theme? 'green-yellow' : 'green-yellow-c']">
+                            <li><a href="cakes/C1001/C1001.html" v-bind:class="['' ,theme? 'green-yellow' : 'green-yellow-c']">C1001</a></li>
+                            <li><a href="cakes/C1002/C1002.html" v-bind:class="['' ,theme? 'green-yellow' : 'green-yellow-c']">C1002</a></li>
+                        </ul>
+                    </div>
+                    <div class="block" onclick="displayQuestions(1)" style="left: 350px;top: 380px;width: 300px;height: 30px;">
+                        <h1 v-bind:class="['' ,theme? 'red-orange' : 'red-orange-c']">normal:</h1>
+                    </div>
+                    <div class="block" id="normal" style="left: 350px;top: 415px;">
+                        <ul v-bind:class="['' ,theme? 'red-orange' : 'red-orange-c']">
+                            <li>none</li>
+                        </ul>
+                    </div>
+                    <div class="block" onclick="displayQuestions(2)" style="left: 70px;top: 470px;width: 300px;height: 30px;">
+                        <h1 v-bind:class="['' ,theme? 'blue-cyan' : 'blue-cyan-c']">hard:</h1>
+                    </div>
+                    <div class="block" id="hard" style="left: 70px;top: 505px;">
+                        <ul v-bind:class="['' ,theme? 'blue-cyan' : 'blue-cyan-c']">
+                            <li>none</li>
+                        </ul>
+                    </div>
+
+                    <div class="block" onclick="displayQuestions(3)" style="left: 1170px;top: 140px;width: 300px;height: 30px;">
+                        <h1 v-bind:class="['' ,theme? 'red-orange' : 'red-orange-c']">sets:</h1>
+                    </div>
+                    <div class="block" id="sets" style="left: 1170px;top: 175px;">
+                        <ul v-bind:class="['' ,theme? 'blue-pink' : 'blue-pink-c']">
+                            <li><a href="cakes/Cakeset01.html" v-bind:class="['' ,theme? 'blue-pink' : 'blue-pink-c']">TreeのOI</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="main">
+                        <h1 v-bind:class="['' ,theme? 'blue-pink' : 'blue-pink-c']">Codebaker-</h1>
+                        <h2 v-bind:class="['' ,theme? 'blue-cyan' : 'blue-cyan-c']"> Online Judge</h2>
+                        <h3 v-bind:class="['' ,theme? 'color-lsblue' : 'color-lsblue-c']">cakesets</h3>
+                    </div>
+                </div>
+
+
+                <div class="littlePage discussion">
+                    <div onclick="toPage(1)" v-bind:class="['turn-left' ,theme? 'turn-to-page' : 'turn-to-page-c']">
+                        <div v-bind:class="['' ,theme? 'circle' : 'circle-c']">&lt;</div>
+                        <hr/> cakesets
+                    </div>
+                    <div onclick="toPage(3)" v-bind:class="['turn-right' ,theme? 'turn-to-page' : 'turn-to-page-c']">
+                        <div v-bind:class="['' ,theme? 'circle' : 'circle-c']">&gt;</div>
+                        <hr/> my account
+                    </div>
+                    <div class="block" style="left: 100px;top: 50px;width: 350px;height: 130px;">
+                        <h4 v-bind:class="['' ,theme? 'green-yellow' : 'green-yellow-c']">Codebaker OJ Project has been started.
+                        </h4>
+                        <br/>
+                        <p v-bind:class="['' ,theme? 'color-lsblue' : 'color-lsblue-c']">Due to limited capacity, completion is far away.</p>
+                    </div>
+                    <div class="block" style="left: 200px;top: 450px;width: 350px;height: 130px;">
+                        <h4 v-bind:class="['' ,theme? 'green-yellow' : 'green-yellow-c']"> TREEのOI 2022 Spring</h4>
+                        <br/>
+                        <p v-bind:class="['' ,theme? 'color-lsblue' : 'color-lsblue-c']">It'll take place on 2022-4-30.</p>
+                    </div>
+                    <div class="main">
+                        <h1 v-bind:class="['' ,theme? 'blue-pink' : 'blue-pink-c']">Codebaker-</h1>
+                        <h2 v-bind:class="['' ,theme? 'blue-cyan' : 'blue-cyan-c']"> Online Judge</h2>
+                        <h3 v-bind:class="['' ,theme? 'color-lsblue' : 'color-lsblue-c']">discussion</h3>
+                    </div>
+                </div>
+
+
+                <div class="littlePage myAccount">
+                    <div onclick="toPage(2)" v-bind:class="['turn-left' ,theme? 'turn-to-page' : 'turn-to-page-c']">
+                        <div v-bind:class="['' ,theme? 'circle' : 'circle-c']">&lt;</div>
+                        <hr/> discussion
+                    </div>
+                    <div onclick="toPage(0)" v-bind:class="['turn-right' ,theme? 'turn-to-page' : 'turn-to-page-c']">
+                        <div v-bind:class="['' ,theme? 'circle' : 'circle-c']">&gt;</div>
+                        <hr/> main page
+                    </div>
+
+                    <div class="block" style="left:150px;top:100px;">
+                        <button id="log-in-button" v-bind:class="['' ,theme? 'code' : 'code-c']">log in</button>
+                        <button id="register-button" v-bind:class="['' ,theme? 'code' : 'code-c']">register</button>
+                        <button onclick="displayLogInAndRegister()" v-bind:class="['' ,theme? 'code' : 'code-c']">change
+                    </button>
+                    </div>
+
+                    <div class="block" id="log-in-form" style="left: 150px;top: 170px;width: 350px;height: 150px;display:block;">
+                        <form action="" method="post" name="logInForm" onsubmit="return validateForm('logInForm');">
+                            <h2 v-bind:class="['log-in-information' ,theme? 'red-orange' : 'red-orange-c']">user name:</h2>
+                            <input name="username" type="text" v-bind:class="['' ,theme? 'code' : 'code-c']" />
+                            <h2 v-bind:class="['log-in-information' ,theme? 'red-orange' : 'red-orange-c']">password:</h2>
+                            <input name="password" type="password" v-bind:class="['' ,theme? 'code' : 'code-c']" /><br/>
+                            <input name="submit" type="submit" v-bind:class="['' ,theme? 'code' : 'code-c']" value="log in">
+                        </form>
+                    </div>
+                    <div class="block" id="register-form" style="left: 150px;top: 170px;width: 350px;height: 150px;display:none;">
+                        <form action="" method="post" name="registerForm" onsubmit="return validateForm('registerForm');">
+                            <h2 v-bind:class="['log-in-information' ,theme? 'red-orange' : 'red-orange-c']">user name:</h2>
+                            <input name="username" type="text" v-bind:class="['' ,theme? 'code' : 'code-c']" />
+                            <h2 v-bind:class="['log-in-information' ,theme? 'red-orange' : 'red-orange-c']">password:</h2>
+                            <input name="password" type="password" v-bind:class="['' ,theme? 'code' : 'code-c']" /><br/>
+                            <h2 v-bind:class="['log-in-information' ,theme? 'red-orange' : 'red-orange-c']">password again:
+                            </h2>
+                            <input name="passwordCopy" type="password" v-bind:class="['' ,theme? 'code' : 'code-c']" /><br/>
+                            <input name="submit" type="submit" v-bind:class="['' ,theme? 'code' : 'code-c']" value="register">
+                        </form>
+                    </div>
+
+                    <div class="main">
+                        <h1 v-bind:class="['' ,theme? 'blue-pink' : 'blue-pink-c']">Codebaker-</h1>
+                        <h2 v-bind:class="['' ,theme? 'blue-cyan' : 'blue-cyan-c']"> Online Judge</h2>
+                        <h3 v-bind:class="['' ,theme? 'color-lsblue' : 'color-lsblue-c']">account</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var myVue = new Vue({
+            el: '#page',
+            data: {
+                theme: true,
+            },
+            methods: {
+                turnTheme: function turn() {
+                    myVue.theme = !myVue.theme;
+                    if (localStorage.getItem("cojTheme") == "1") {
+                        localStorage.setItem("cojTheme", "2");
+                    } else {
+                        localStorage.setItem("cojTheme", "1");
+                    }
+                }
+            },
+        })
+
+        function testTheme() {
+            if (localStorage.getItem("cojTheme") == undefined) {
+                localStorage.setItem("cojTheme", "1");
+                myVue.theme = true;
+            } else if (localStorage.getItem("cojTheme") == "2") {
+                myVue.theme = false;
+            } else {
+                myVue.theme = true;
+            }
+        }
+    </script>
+</body>
+<script>
+    var now = new Date();
+    var str = now.toDateString();
+    document.getElementById("date").innerHTML = str;
+    jsMath.Process(document);
+</script>
+
+
+</html>

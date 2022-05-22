@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@next" rel="external nofollow" ></script>
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-plus/dist/index.css" rel="external nofollow" target="_blank" >
+    <!-- import JavaScript -->
+    <script src="https://unpkg.com/element-plus" rel="external nofollow" ></script>
+    <title>Element Plus demo</title>
+</head>
+<body>
+<div id="app">
+    <el-button>{{ message }}</el-button>
+</div>
+<script>
+    const App = {
+        data() {
+            return {
+                message: "Hello Element Plus",
+            };
+        },
+    };
+    const app = Vue.createApp(App);
+    app.use(ElementPlus);
+    app.mount("#app");
+</script>
+</body>
+</html>
